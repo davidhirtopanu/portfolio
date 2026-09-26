@@ -183,22 +183,23 @@
           <strong>Project Summary:</strong>
           <ul>
             <li>Built a two-wheeled robot, capable of balancing on its own using a PID control loop.</li>
-            <li>Used an MPU6050 to determine roll angle, an L293D motor driver, and an ESP32 coded in C++ to control all the components.</li>
+            <li>Used an MPU6050 to determine pitch angle, an L293D motor driver, and an ESP32 coded in C++ to control all the components.</li>
           </ul>
         </div>
 
         <ul class="details">
-          <li><strong>Sensor Implementation:</strong> Combined accelerometer data which was inaccurate during vibrations, and gyroscope data, which accumulated error over time, using a Kalman filter, producing stable and accurate roll angle readings.</li>
-          <li><strong>Feedback Control:</strong> Developed a PID loop, reading the Kalman angle, and adjusting motor PWM outputs to adjust the robot towards the target roll angle.</li>
-          <li><strong>Failure Diagnosis & Fix:</strong> Even when placed flat and stationary, accelerometer and gyroscope readings had na offset, so tests were run, and an average offset in each reading was calculated and calibration values for every measurement were added in the code. <br>
-Due to internal friction in the gearbox motor, a minimum PWM output of 1750 out of a maximum of 2047, to run the motors reliably. The PID coefficients were modified to produce an output between 0-100, which was then mapped using a custom function to fit in the range 1750-2047.<br>
+          <li><strong>Sensor Implementation:</strong> Combined accelerometer data which was inaccurate during vibrations, and gyroscope data, which accumulated error over time, using a Kalman filter, producing stable and accurate pitch angle readings.</li>
+          <li><strong>Feedback Control:</strong> Developed a PID loop, reading the Kalman angle, and adjusting motor PWM outputs to adjust the robot towards the target pitch angle.</li>
+          <li><strong>Failure Diagnosis & Fix:</strong> Even when placed flat and stationary, accelerometer and gyroscope readings had an offset, so tests were run, and an average offset in each reading was calculated and calibration values for every measurement were added in the code. <br>
+Due to internal friction in the gearbox motor, a minimum PWM output of 1750 out of a maximum of 2047, was required to run the motors reliably. The PID coefficients were modified to produce an output between 0-100, which was then mapped using a custom function to fit in the range 1750-2047.<br>
 Constant vibrations would slightly adjust the MPU6050 orientation, so a piece of cardboard was placed underneath the IMU to minimise the effects of the vibration. </li>
-        
+		</ul>
 <video autoplay loop muted playsinline style = "display:block; width: 350px; max-width: 100%; height: auto; border-radius: 6px; margin: 20px auto; border: 1px solid #30363d;">
 <source src="PID-robot-demo.mp4" type="video/mp4">
 </video>
+	<ul class="details">
 <li><strong>Retrospective Improvements:</strong> Use a more efficient motor driver with less of a voltage drop to the motors. <br>
-Solder components and wires to a pcb to reduce vibration of wires. <br>
+Solder components and wires to a PCB to reduce vibration of wires. <br>
 Use gearbox motors with less internal friction, allowing motors to start spinning with a lower PWM output.</li>
 	</ul>
       </div>
@@ -244,18 +245,20 @@ Use gearbox motors with less internal friction, allowing motors to start spinnin
 
         <ul class="details">
           <li><strong>Blade Geometry:</strong> Blade geometry produced by conducting research and running Blade Element Momentum (BEM) simulations on MATLAB on various geometries. Simulations run in MATLAB to determine the structural strength of the blade. </li>
-          <li><strong>Manufacturing Strategy:</strong> CATIA 3DEXPERIENCE used to produce aerofoil sections to be lasercut out of plywood, and stacked radially onto 2 carbon fibre spars. <br>
-To increase strength, dovetail sections were stacked in the transverse direction, and a steel pin passed through the them as a fail safe. <br>
+          <li><strong>Manufacturing Strategy:</strong> CATIA 3DEXPERIENCE used to produce aerofoil sections to be laser-cut out of plywood, and stacked radially onto 2 carbon fibre spars. <br>
+To increase strength, dovetail sections were stacked in the transverse direction, and a steel pin passed through them as a fail safe. <br>
 Plywood sections joined using PVA wood glue, and connections to steel and carbon fibre were made using JB Weld epoxy adhesive. <br>
-Blades were sanded down and then had varnish added toMy  add a smooth finish to minimise skin friction.
+Blades were sanded down and then had varnish applied to add a smooth finish to minimise skin friction.
 </li>
-          <li><strong>Validation:</strong> Wind tunnel tests at an airspeed of 10 m/s showed the blades capable of producing 29 W from a predicted 33 W, and succesfully withstood all forces.</li>
+          <li><strong>Validation:</strong> Wind tunnel tests at an airspeed of 10 m/s showed the blades capable of producing 29 W from a predicted 33 W, and successfully withstood all forces.</li>
 
 <video autoplay loop muted playsinline style = "display:block; width: 350px; max-width: 100%; height: auto; border-radius: 6px; margin: 20px auto; border: 1px solid #30363d;">
 <source src="HAWT-demo.mp4" type="video/mp4">
 </video>
+		</ul>
+		  <ul class = "details">
 
-<li><strong>Retrospective Improvements:</strong> When sanding down the blade to produce a smooth finish, a jig could have been used to keep the aerofoil shape more accurate, and potentially produce more power.
+<li><strong>Retrospective Improvements:</strong> When sanding down the blade to produce a smooth finish, a jig could have been used to keep the aerofoil shape more accurate, and potentially produce more power.</li>
 
         </ul>
       </div>
